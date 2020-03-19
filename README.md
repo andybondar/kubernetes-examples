@@ -10,8 +10,6 @@ Kubernetes native stack for Usage & Resource monitoring consists of:
 
 Heapster supports broad variety of DB backends, not only InfluxDB
 
-InfluxDB is an open-source time series database
-A time series database (TSDB) is a software system that is optimized for storing and serving time series through associated pairs of time(s) and value(s).
+InfluxDB is an open-source time series database A time series database (TSDB) is a software system that is optimized for storing and serving time series through associated pairs of time(s) and value(s).
 
-Heapster talks to each kubelet on each node
-Kubelet itself collects the data from C advicer, an internal kubernetes system
+Heapster talks to each kubelet on each node Kubelet itself collects the data from C adviser, an internal kubernetes system
