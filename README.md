@@ -2,14 +2,4 @@
 This guide aims to provide some "hits and tips", useful examples and other information which would help the beginners to learn and start using Kubernetes, famous open-source container-orchestration system.
 
 # Monitoring
-Kubernetes native stack for Usage & Resource monitoring consists of:
-
-* Heapster - collects the data
-* InfluxDB - stores the data
-* Grafana - fetches the data from InfluxDB and visualize it
-
-Heapster supports broad variety of DB backends, not only InfluxDB
-
-InfluxDB is an open-source time series database A time series database (TSDB) is a software system that is optimized for storing and serving time series through associated pairs of time(s) and value(s).
-
-Heapster talks to each kubelet on each node Kubelet itself collects the data from C adviser, an internal kubernetes system
+Metric Server replaced Heapster as primary cluster-wide metrics aggregator. It collects resource metrics from kubelets and exposes them in Kubernetes API Server through [Metrics API](https://github.com/kubernetes/metrics). Main consumers of those metrics are `kubectl top`, [HPA](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) and [VPA](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler). Metric server stores only the latest values of metrics needed for core metrics pipeline (CPU, Memory) and is not responsible for forwarding metrics to third-party destinations. Also, please review [Kubernetes monitoring architecture diagram](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/instrumentation/monitoring_architecture.md#appendix-architecture-diagram). It looks slightly outdated, but still can be useful.
