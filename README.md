@@ -14,15 +14,15 @@ Metric Server replaced Heapster as primary cluster-wide metrics aggregator. It c
 
 ## K8S auditing can be broken down into 2 areas:
 * The Audit Policy
-** Defines what should be logged
-** Is defined in a .yaml file and on the kube-apiserver, when it starts
-** kubectl don't have access
-** It may vary depoending on cluster provider, but for minikube - Audit Policy is passed to the cluster when it starts
-** Almost anything you can create or do in K8S, can be audited
+  * Defines what should be logged
+  * Is defined in a .yaml file and on the kube-apiserver, when it starts
+  * kubectl don't have access
+  * It may vary depoending on cluster provider, but for minikube - Audit Policy is passed to the cluster when it starts
+  * Almost anything you can create or do in K8S, can be audited
 
 * The audit backend
-** Exports the audit events to external storage
-** Out of box, kube-apiserver writes the events to local disk (Logs) or sends the events to an external API (Webhooks)
+  * Exports the audit events to external storage
+  * Out of box, kube-apiserver writes the events to local disk (Logs) or sends the events to an external API (Webhooks)
 
 ## Apply The Audit Policy for Minikube cluster
 * Stop Minikube clister:
