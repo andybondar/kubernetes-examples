@@ -1,0 +1,19 @@
+# Default values
+
+replicaCount: 1
+storage: 10Gi
+
+image:
+  repo: ghost
+
+pod:
+  port: 2368
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  enabled: true
+  tier: frontend
+  type: LoadBalancer
+  port: 2368
