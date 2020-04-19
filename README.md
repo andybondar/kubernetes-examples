@@ -48,4 +48,41 @@ minikube start \
 kubectl logs kube-apiserver-minikube -n  kube-system | grep audit.k8s.io/v1
 ```
 
- 
+# High Availability
+
+## Key K8S Architecture
+
+* Master
+  * kube-apiserver
+  * kube-controller-manager
+  * kube-scheduler
+
+* etcd (clustered) - distributed 'key-value' database.
+
+## Key things allowing to set up a relieble k8s cluster
+
+* Reliable Master Nodes 
+* Redundant, reliable 'key-value' data storage layer with clustered etcd
+* Replicated, load balanced API servers (kube-api)
+* Master-elected kube-scheduler and kube-controller-manager daemons
+* Multiple Worker Nodes
+
+Also, please review KOPS (Kubernetes Operations) documentation:
+
+* https://github.com/kubernetes/kops
+* https://kops.sigs.k8s.io/
+
+## Masters
+
+* A Master at least run kube-apiserver, kube-controller-manager, kube-scheduler
+* These three processes relay on etcd 'key-value' storage
+
+## Setting up multiple Masters
+
+* Odd number of Masters is critical
+* Place the Masters in different Availability Zones
+* `kops create cluster` command allows us to specify the following HA options:
+  * How many Masters do we have
+  * In which AZs these Masters are provisioned
+
+
